@@ -1,0 +1,127 @@
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>java函数式接口编程 | Huangzb's Blog</title><meta name="description" content="java函数式接口编程"><meta name="keywords" content="funcational,java,interface"><meta name="author" content="Marvin"><meta name="copyright" content="Marvin"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="https://onehuang.github.io/2019/07/31/2019-07-31-java函数式接口编程/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="java函数式接口编程"><meta name="twitter:description" content="java函数式接口编程"><meta name="twitter:image" content="https://i.loli.net/2019/09/08/6Qze5x3ZvkdRy2B.jpg"><meta property="og:type" content="article"><meta property="og:title" content="java函数式接口编程"><meta property="og:url" content="https://onehuang.github.io/2019/07/31/2019-07-31-java函数式接口编程/"><meta property="og:site_name" content="Huangzb's Blog"><meta property="og:description" content="java函数式接口编程"><meta property="og:image" content="https://i.loli.net/2019/09/08/6Qze5x3ZvkdRy2B.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="prev" title="Hexo 操作手册" href="https://onehuang.github.io/2019/09/18/2019-07-20-hexo使用总结/"><link rel="next" title="2019-07-26-ubuntu常见问题" href="https://onehuang.github.io/2019/07/26/2019-07-26-ubuntu常见问题/"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"http://onehuang.github.io/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days'
+
+  
+}</script></head><body><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#函数式接口"><span class="toc-number">1.</span> <span class="toc-text">函数式接口</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://i.loli.net/2019/09/08/6Qze5x3ZvkdRy2B.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Huangzb's Blog</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><span class="pull-right menus"><div class="mobile_author_icon"><img class="lozad" data-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"><div class="mobile_author-info__description">记录生活和工作中的点点滴滴</div></div><hr><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a><a class="site-page" href="/gallery"><i class="fa-fw"></i><span> Gallery</span></a><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">java函数式接口编程</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-07-31<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-09-18</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/java/">java</a></span></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><ol>
+<li><h1 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h1><ol>
+<li><p>定义</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">StringProcessor</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="function">String <span class="title">process</span><span class="params">(String x)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>Lambda 表达式</p>
+<ol>
+<li><p>lambda用来表达语句，java8之后支持lambda编程支持，基础语法：</p>
+<p><code>lambda_argument_list -&gt; lambda_body</code></p>
+</li>
+</ol>
+</li>
+<li><p>Predicates</p>
+<ol>
+<li><p>The java.util.function Package</p>
+<p>在java8中加入 <code>java.util.function</code>包，主要是基础下面四个模式：</p>
+<table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="center">参数</th>
+<th align="center">返回值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Predicate</td>
+<td align="center">是</td>
+<td align="center">Boolean</td>
+<td align="left">测试参数并且返回true 或 false</td>
+</tr>
+<tr>
+<td align="center">Function</td>
+<td align="center">是</td>
+<td align="center">是</td>
+<td align="left">映射一个类型到其他类型</td>
+</tr>
+<tr>
+<td align="center">Consumer</td>
+<td align="center">是</td>
+<td align="center">否</td>
+<td align="left">消费输入，没有返回值信息</td>
+</tr>
+<tr>
+<td align="center">Supplier</td>
+<td align="center">否</td>
+<td align="center">是</td>
+<td align="left">产生数据，没有输入信息</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Predicate 接口</p>
+<p>Predicate函数接口的函数式方法叫做test，接受一个泛型的条件，返回true或者fasle。代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@FunctionalInterface</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Predicate</span>&lt;<span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">boolean</span> <span class="title">test</span><span class="params">(T t)</span></span>;</span><br><span class="line"> <span class="comment">// some static and default methods</span></span><br><span class="line"> ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>定义一个整形类型的Predicate:</p>
+<p><code>Predicate&lt;Integer&gt; p1;</code></p>
+<p>p1的test方法将访问一个整形的参数，并且如果是true则返回true，否则返回false。</p>
+<p>例如，p1被用来检查一个整数是否比7大，使用一个lambda表达是的条件：</p>
+<p><code>p1 = x -&gt; x &gt; 7</code></p>
+<p>可以这样使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ( p1.test(<span class="number">9</span>))</span><br><span class="line"> System.out.println(<span class="string">"Predicate x &gt; 7 is true for x==9."</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ol>
+</li>
+</ol>
+<ol start="3">
+<li><p>Predicate作为方法的参数</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PredicateMethods</span></span>&#123;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">result</span><span class="params">((Predicate&lt;X&gt; p, X arg)</span></span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (p.test(arg))</span><br><span class="line">     System.out.println(<span class="string">"The Predicate is true for "</span> + arg);</span><br><span class="line">     <span class="keyword">else</span></span><br><span class="line">     System.out.println(<span class="string">"The Predicate is false for "</span> + arg);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">     Predicate&lt;Integer&gt; p1 = x -&gt; x &gt; <span class="number">2</span>;</span><br><span class="line">     Predicate&lt;String&gt; p2 = s -&gt; s.charAt(<span class="number">0</span>) == <span class="string">'H'</span>;</span><br><span class="line">     result(p1, <span class="number">6</span>);</span><br><span class="line">     result(p2, <span class="string">"Hello"</span>);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数接口链式调用</p>
+</li>
+<li></li>
+</ol>
+<ol start="4">
+<li><p>Functions</p>
+</li>
+<li><p>Operators</p>
+</li>
+<li><p>Consumers</p>
+</li>
+<li><p>Suppliers</p>
+</li>
+<li><p>Use in Traversing Objects</p>
+</li>
+<li><p>Use in Collections</p>
+</li>
+<li><p>Use in Comparing Objects</p>
+</li>
+<li><p>Use in Optionals</p>
+</li>
+<li><p>Use in Streams</p>
+</li>
+<li><p>Use in Multithreaded Programs</p>
+</li>
+<li><p>Use in Atomic Calculations</p>
+</li>
+<li><p>Use in JavaFX Applications</p>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Marvin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://onehuang.github.io/2019/07/31/2019-07-31-java函数式接口编程/">https://onehuang.github.io/2019/07/31/2019-07-31-java函数式接口编程/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/funcational/">funcational    </a><a class="post-meta__tags" href="/tags/java/">java    </a><a class="post-meta__tags" href="/tags/interface/">interface    </a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2019/09/08/6Qze5x3ZvkdRy2B.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-buttom"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" data-src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" data-src="/img/alipay.jpg"><div class="post-qr-code__desc">支付宝</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="prev-post pull-left"><a href="/2019/09/18/2019-07-20-hexo使用总结/"><img class="prev_cover lozad" data-src="https://i.loli.net/2019/07/20/5d32b4e46ad8d99827.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Previous Post</div><div class="prev_info"><span>Hexo 操作手册</span></div></a></div><div class="next-post pull-right"><a href="/2019/07/26/2019-07-26-ubuntu常见问题/"><img class="next_cover lozad" data-src="https://i.loli.net/2019/07/24/5d3831bbc743e40683.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>2019-07-26-ubuntu常见问题</span></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fa fa-thumbs-up" aria-hidden="true"></i><span> Recommend</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2019/09/18/2019-09-08-Arthas总结/" title="2019-09-08-Arthas总结"><img class="relatedPosts_cover lozad" data-src="https://i.loli.net/2019/09/08/ner6kBiGuMjpQm3.png"><div class="relatedPosts_title">2019-09-08-Arthas总结</div></a></div><div class="relatedPosts_item"><a href="/2019/09/18/2019-09-18-idea插件总结/" title="idea插件总结"><img class="relatedPosts_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/cover/default_bg.png"><div class="relatedPosts_title">idea插件总结</div></a></div></div><div class="clear_both"></div></div></div></div><footer><div class="layout" id="footer"><div class="copyright">&copy;2019 By Marvin</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="fa fa-moon-o nightshift" id="nightshift" title="Dark Mode"></i></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script></body></html>
